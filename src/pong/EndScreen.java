@@ -30,7 +30,7 @@ public class EndScreen extends Screen {
 		if(pWon == 1) {
 			g2d.drawString("Player 1 Wins!", 100, 250);
 		} else {
-			g2d.drawString("Player 1 Wins!", 100, 250);
+			g2d.drawString("Player 2 Wins!", 100, 250);
 		}
 	}
 

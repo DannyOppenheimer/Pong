@@ -11,13 +11,13 @@ public class GameScreen extends Screen {
 	private Ball ball;
 	private Player player1;
 	private Player player2;
-	private ScreenManager screenFactory;
+	private ScreenManager screenManager;
 	private Score score1;
 	private Score score2;
 	
-	public GameScreen(ScreenManager screenFactory) {
-		super(screenFactory);
-		this.screenFactory = screenFactory;
+	public GameScreen(ScreenManager screenManager) {
+		super(screenManager);
+		this.screenManager = screenManager;
 	}
 
 	@Override
@@ -67,14 +67,14 @@ public class GameScreen extends Screen {
 	public void onUpdate() {
 		
 		ball.update();
-		player1.update(ball, screenFactory.getCurrentScreen());
-		player2.update(ball, screenFactory.getCurrentScreen());
+		player1.update(ball, screenManager.getCurrentScreen());
+		player2.update(ball, screenManager.getCurrentScreen());
 		
 		if(score1.getScore() >= 5) {
-			screenFactory.showScreen(new EndScreen(screenFactory, 1));
+			screenManager.showScreen(new EndScreen(screenManager, 1));
 		}
 		if(score2.getScore() >= 5) {
-			screenFactory.showScreen(new EndScreen(screenFactory, 2));
+			screenManager.showScreen(new EndScreen(screenManager, 2));
 		}
 		
 	}
